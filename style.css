@@ -1,12 +1,11 @@
 .img-holder {
-	width: 100%; 
-	height: 220px; 
+	height: 150px; 
 	background-color: #fbfbfb; 
 	border: 1px solid #b8b8b8;
 	background-image: url('images/fatemeh.jpg');
 	-webkit-background-size: cover;
 	background-size: cover;
-	background-position: top center;
+	background-position: center center;
 	background-repeat: no-repeat;
 }
 
@@ -33,4 +32,12 @@
 .ui-navbar li .ui-btn-icon-top .ui-btn-inner {
 	padding-top: 10px;
 	padding-bottom: 5px;
+}
+
+.list-item i {
+	padding-left: 10px;
+}
+
+.big {
+	font-size: 18px;
 }
