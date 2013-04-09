@@ -1,0 +1,36 @@
+.img-holder {
+	width: 100%; 
+	height: 220px; 
+	background-color: #fbfbfb; 
+	border: 1px solid #b8b8b8;
+	background-image: url('images/fatemeh.jpg');
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: top center;
+	background-repeat: no-repeat;
+}
+
+.img-holder img {
+	margin: 0 auto;
+	display: none;
+}
+
+.ui-content .ui-listview {
+	margin-top: 18px;
+}
+
+#header .icon-home {
+	font-size: 17px;
+}
+
+.nav-bar i {
+	display: block;
+	width: auto;
+	margin-bottom: 5px;
+	font-size: 20px;
+}
+
+.ui-navbar li .ui-btn-icon-top .ui-btn-inner {
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
