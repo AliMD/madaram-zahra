@@ -1,3 +1,41 @@
+@font-face {
+		    font-family: 'Roya';
+		    src: url('font/BRoya.eot');
+		    src: url('font/BRoya.eot?#iefix') format('embedded-opentype'),
+		         url('font/BRoya.woff') format('woff'),
+		         url('font/BRoya.ttf') format('truetype');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+@font-face {
+		    font-family: 'Nazanin';
+		    src: url('font/BNazanin.eot');
+		    src: url('font/BNazanin.eot?#iefix') format('embedded-opentype'),
+		         url('font/BNazanin.woff') format('woff'),
+		         url('font/BNazanin.ttf') format('truetype');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+@font-face {
+		    font-family: 'Titr';
+		    src: url('font/BTitrBold.eot');
+		    src: url('font/BTitrBold.eot?#iefix') format('embedded-opentype'),
+		         url('font/BTitrBold.woff') format('woff'),
+		         url('font/BTitrBold.ttf') format('truetype');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+
+.roya {
+	font-family: 'Roya' !important;
+}
+.titr {
+	font-family: 'Titr' !important;
+	font-weight: normal !important;
+}
+.nazanin {
+	font-family: 'Nazanin' !important;
+}
 .img-holder {
 	height: 150px; 
 	background-color: #fbfbfb; 
