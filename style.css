@@ -79,3 +79,10 @@
 .big {
 	font-size: 18px;
 }
+
+.text {
+	text-align: justify;
+	font-size: 22px;
+	line-height: 1.7;
+	text-indent: 10px;
+}
