@@ -94,3 +94,17 @@ div.more {
 	-webkit-border-radius:0;
 	margin: 0;
 }
+#header .home,
+#header .back {
+	margin: 5px;
+}
+
+#header .home {
+	margin: 5px;
+}
+
+.back i {
+	padding: 2px;
+	font-size: 15px;
+	display: block;
+}
