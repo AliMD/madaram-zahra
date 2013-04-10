@@ -17,7 +17,7 @@
 		<!-- Home -->
 		<div data-role="page" id="home">
 			<div id="header" data-theme="a" data-role="header" data-position="fixed">
-				<a class="home" data-role="button" data-direction="reverse" href="#home" >
+				<a class="home" data-role="button" data-direction="reverse" data-transition="slide" href="#home" >
 					<i  class="icon-home"></i>
 				</a>
 				<h3 class="titr">..:: مادرم زهرا ::..</h3>
@@ -156,7 +156,7 @@
 		
 		<div data-role="page" id="audio">
 			<div id="header" data-theme="a" data-role="header" data-position="fixed">
-				<a class="home" data-role="button" data-direction="reverse" href="#home" >
+				<a class="home" data-role="button" data-direction="reverse" data-transition="slide" href="#home" >
 					<i  class="icon-home"></i>
 				</a>
 				<h3 class="titr">
@@ -209,6 +209,12 @@
 						<a href="#" data-audio="chashm-berah-amadane-in-dokhtar" class="titr" data-transition="slide">
 							<i class="icon-th-list"></i>
 							چشم به راه آمدن این دختر
+						</a>
+					</li>
+					<li data-theme="a">
+						<a href="#audio-part2" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							غمنامه مادر
 						</a>
 					</li>
 					<li data-theme="a">
@@ -317,11 +323,129 @@
 			</div>
 		</div>
 
+
+		<!-- Audio Part 2 -->
+		
+		<div data-role="page" id="audio-part2">
+			<div id="header" data-theme="a" data-role="header" data-position="fixed">
+				<a class="back" data-role="button" data-direction="reverse" data-transition="slide" href="#audio" >
+					<i  class="icon-arrow-left"></i>
+				</a>
+				<h3 class="titr">
+					مادرم زهرا
+				</h3>
+			</div>
+			<div data-role="content">
+				<div class="img-holder"></div>
+				<ul class="list-item" data-role="listview" data-divider-theme="a" data-inset="false">
+						<li class="big titr" data-role="list-divider" role="heading">
+							غمنامه مادر
+						</li>
+					<li data-theme="a">
+						<a href="#" data-audio="track1" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							بخش اول
+						</a>
+					</li>
+					<li data-theme="a">
+						<a href="#" data-audio="track2" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							بخش دوم
+						</a>
+					</li>
+					<li data-theme="a">
+						<a href="#" data-audio="track3" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							بخش سوم
+						</a>
+					</li>
+					<li data-theme="a">
+						<a href="#" data-audio="track4" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							بخش چهارم
+						</a>
+					</li>
+					<li data-theme="a">
+						<a href="#" data-audio="track5" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							بخش پنجم
+						</a>
+					</li>
+					<li data-theme="a">
+						<a href="#" data-audio="track6" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							بخش ششم
+						</a>
+					</li>
+					<li data-theme="a">
+						<a href="#" data-audio="track7" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							بخش هفتم
+						</a>
+					</li>
+					<li data-theme="a">
+						<a href="#" data-audio="track8" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							بخش هشتم
+						</a>
+					</li>
+					<li data-theme="a">
+						<a href="#" data-audio="track9" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							بخش نهم
+						</a>
+					</li>
+					<li data-theme="a">
+						<a href="#" data-audio="track10" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							بخش دهم
+						</a>
+					</li>
+					<li data-theme="a">
+						<a href="#" data-audio="track11" class="titr" data-transition="slide">
+							<i class="icon-th-list"></i>
+							بخش یازدهم
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div data-theme="a" data-role="footer" data-position="fixed">
+				<div class="nav-bar" data-role="navbar" data-iconpos="top">
+					<ul>
+						<li>
+							<a class="titr" href="#home" data-transition="fade">
+								<i class="icon-book"></i>
+								مادرم
+							</a>
+						</li>
+						<li>
+							<a href="#audio" class="titr ui-btn-active ui-state-persist" data-transition="fade">
+								<i class="icon-play"></i>
+								صوتی
+							</a>
+						</li>
+						<li>
+							<a href="#home" class="titr" data-transition="fade">
+								<i class="icon-picture"></i>
+								تصاویر
+							</a>
+						</li>
+						<li>
+							<a href="#about" class="titr" data-transition="fade">
+								<i class="icon-envelope"></i>
+								درباره ما
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
 		<!-- About -->
 		
 		<div data-role="page" id="about">
 			<div id="header" data-theme="a" data-role="header" data-position="fixed">
-				<a class="home" data-role="button" data-direction="reverse" href="#home" >
+				<a class="home" data-role="button" data-direction="reverse" data-transition="slide" href="#home" >
 					<i  class="icon-home"></i>
 				</a>
 				<h3 class="titr">
