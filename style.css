@@ -28,6 +28,7 @@
 
 .roya {
 	font-family: 'Roya' !important;
+	font-weight: normal !important;
 }
 .titr {
 	font-family: 'Titr' !important;
@@ -35,6 +36,7 @@
 }
 .nazanin {
 	font-family: 'Nazanin' !important;
+	font-weight: normal !important;
 }
 .img-holder {
 	height: 150px; 
@@ -85,4 +87,10 @@
 	font-size: 22px;
 	line-height: 1.7;
 	text-indent: 10px;
+}
+
+div.more {
+	border-radius: 0;
+	-webkit-border-radius:0;
+	margin: 0;
 }
