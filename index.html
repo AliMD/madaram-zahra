@@ -166,13 +166,19 @@
 			<div data-role="content">
 				<div class="img-holder"></div>
 				<ul class="list-item" data-role="listview" data-divider-theme="a" data-inset="false">
-						<li class="big titr" data-role="list-divider" role="heading">
-							شهادت مادرم افسانه نیست.
-						</li>
+					<li class="big titr" data-role="list-divider" role="heading">
+						شهادت مادرم افسانه نیست.
+					</li>
+					<li data-theme="a">
+						<a href="#audio-part2" class="titr" data-transition="slide">
+							<i class="icon-folder-close"></i>
+							غمنامه مادر
+						</a>
+					</li>
 					<li data-theme="a">
 						<a href="#" data-audio="bedoone-shahr" class="titr" data-transition="slide">
 							<i class="icon-play-circle"></i>
-							بدون شرح!
+							بدون شرح !
 						</a>
 					</li>
 					<li data-theme="a">
@@ -209,12 +215,6 @@
 						<a href="#" data-audio="chashm-berah-amadane-in-dokhtar" class="titr" data-transition="slide">
 							<i class="icon-play-circle"></i>
 							چشم به راه آمدن این دختر
-						</a>
-					</li>
-					<li data-theme="a">
-						<a href="#audio-part2" class="titr" data-transition="slide">
-							<i class="icon-play-circle"></i>
-							غمنامه مادر
 						</a>
 					</li>
 					<li data-theme="a">
@@ -307,7 +307,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#home" class="titr" data-transition="fade">
+							<a href="#gallery" class="titr" data-transition="fade">
 								<i class="icon-picture"></i>
 								تصاویر
 							</a>
@@ -425,7 +425,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#home" class="titr" data-transition="fade">
+							<a href="#gallery" class="titr" data-transition="fade">
 								<i class="icon-picture"></i>
 								تصاویر
 							</a>
@@ -473,7 +473,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#home" class="titr" data-transition="fade">
+							<a href="#gallery" class="titr" data-transition="fade">
 								<i class="icon-picture"></i>
 								تصاویر
 							</a>
@@ -488,5 +488,53 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Gallery -->
+		
+		<div data-role="page" id="gallery">
+			<div id="header" data-theme="a" data-role="header" data-position="fixed">
+				<a class="home" data-role="button" data-direction="reverse" data-transition="slide" href="#home" >
+					<i  class="icon-home"></i>
+				</a>
+				<h3 class="titr">
+					درباره ما
+				</h3>
+			</div>
+			<div data-role="content">
+				<div class="img-holder"></div>
+				<p class="nazanin text">در دست ساخت می باشد.</p>
+			</div>
+			<div data-theme="a" data-role="footer" data-position="fixed">
+				<div class="nav-bar" data-role="navbar" data-iconpos="top">
+					<ul>
+						<li>
+							<a class="titr" href="#home" data-transition="fade">
+								<i class="icon-book"></i>
+								مادرم
+							</a>
+						</li>
+						<li>
+							<a href="#audio" class="titr" data-transition="fade">
+								<i class="icon-play"></i>
+								صوتی
+							</a>
+						</li>
+						<li>
+							<a href="#gallery" class="titr ui-btn-active ui-state-persist" data-transition="fade">
+								<i class="icon-picture"></i>
+								تصاویر
+							</a>
+						</li>
+						<li>
+							<a href="#about" class="titr" data-transition="fade">
+								<i class="icon-envelope"></i>
+								درباره ما
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
 	</body>
 </html>
