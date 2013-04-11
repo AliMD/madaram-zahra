@@ -103,3 +103,15 @@ div.more {
 	font-size: 15px;
 	display: block;
 }
+
+a.audio-tag .icon-play-circle {
+	display: none;
+}
+
+a.audio-tag.downloaded .icon-play-circle {
+	display: inline-block;
+}
+
+a.audio-tag.downloaded .icon-download-alt {
+	display: none;
+}
