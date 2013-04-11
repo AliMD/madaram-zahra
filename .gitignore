@@ -8,3 +8,6 @@
 Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+*.docx
+*.doc
