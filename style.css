@@ -30,14 +30,28 @@
 	font-family: 'Roya' !important;
 	font-weight: normal !important;
 }
+
 .titr {
 	font-family: 'Titr' !important;
 	font-weight: normal !important;
 }
+
 .nazanin {
 	font-family: 'Nazanin' !important;
 	font-weight: normal !important;
 }
+
+.big {
+	font-size: 18px;
+}
+
+.text {
+	text-align: justify;
+	font-size: 22px;
+	line-height: 1.7;
+	text-indent: 25px;
+}
+
 .img-holder {
 	height: 150px; 
 	background-color: #fbfbfb; 
@@ -78,29 +92,10 @@
 	padding-left: 10px;
 }
 
-.big {
-	font-size: 18px;
-}
-
-.text {
-	text-align: justify;
-	font-size: 22px;
-	line-height: 1.7;
-	text-indent: 10px;
-}
-
 div.more {
 	border-radius: 0;
 	-webkit-border-radius:0;
 	margin: 0;
-}
-#header .home,
-#header .back {
-	margin: 5px;
-}
-
-#header .home {
-	margin: 5px;
 }
 
 .back i {
