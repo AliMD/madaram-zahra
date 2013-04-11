@@ -11,3 +11,6 @@ $RECYCLE.BIN/
 
 *.docx
 *.doc
+
+/.classpath
+/.project
