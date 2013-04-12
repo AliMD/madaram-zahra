@@ -63,12 +63,12 @@ var
     },
     // pause Event Handler
     paused: function(){
-      app.audioStop();
+      app.audioPause();
       log('Device Paused');
     },
     // resume Event Handler
     resumed: function(){
-      app.audioStart();
+      app.audioPlay();
       log('Device Resumed');
     },
     // menubutton Event Handler
@@ -91,16 +91,18 @@ var
       }
       fileName = this.audioUrl(fileName);
       this.mediaPlayer = new Media(fileName);
-      this.mediaPlayer.play();
+      this.audioPlay();
       log('Play Audio '+fileName);
     },
     // Media Player Stop
-    audioStop: function () {
-      this.playing && this.mediaPlayer && this.mediaPlayer.stop();
+    audioPause: function () {
+      this.playing && this.mediaPlayer && this.mediaPlayer.pause();
+      this.playing = false;
     },
     // Media Player Stop
-    audioStart: function () {
-      this.playing || this.mediaPlayer && this.mediaPlayer.start();
+    audioPlay: function () {
+      this.playing || this.mediaPlayer && this.mediaPlayer.play();
+      this.playing = true;
     },
     // Audio Panel Events for download and play audios
     audioPanel: function () {
