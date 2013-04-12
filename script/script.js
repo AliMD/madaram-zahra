@@ -20,7 +20,7 @@ var
       www: 'file:///android_asset/www/',
       startAudio: 'audio/startup.mp3',
       root: '',
-      download: 'MadaramZahra_Audios/'
+      external: 'Madaram_Zahra/'
     },
     // Application Constructor
     initialize: function() {
@@ -49,7 +49,7 @@ var
     // deviceready Event Handler
     onDeviceReady: function() {
       log('Device Ready');
-
+      if(!app.extDirEntry) return app.makeExtDir(app.onDeviceReady);
       app.playAudio();
       app.audioPanel();
     },
@@ -106,7 +106,7 @@ var
     },
     // Audio Panel Events for download and play audios
     audioPanel: function () {
-      this.reqFileSystem(function(){});
+      alert(extDirEntry.fullPath);
     },
     // Device file system
     fileSystem: null,
@@ -121,6 +121,21 @@ var
       function(evt){
         error('Can not access file system with error code '+evt.target.error.code);
       });
+    },
+    // urls.external DirectoryEntry
+    extDirEntry: null,
+    // Make external directory and assign extDirEntry
+    makeExtDir: function (continueFn) {
+      if(app.extDirEntry) return false;
+      if (!app.fileSystem) return app.reqFileSystem(function(){
+        app.makeExtDir(continueFn);
+      });
+      log('Making "'+app.urls.external+'" directory');
+      app.fileSystem.root.getDirectory(app.urls.external, {create: true, exclusive: false}, function(entry){
+        app.extDirEntry=entry;
+        log('Access '+app.extDirEntry.fullPath);
+        continueFn();
+      }, app.error);
     },
     // check file exist with ajax
     fileExist: function(url,useAjax,success,error){
