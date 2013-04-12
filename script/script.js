@@ -20,7 +20,8 @@ var
       www: 'file:///android_asset/www/',
       startAudio: 'audio/startup.mp3',
       root: '',
-      external: 'Madaram_Zahra/'
+      external: 'Madaram_Zahra/',
+      server: 'http://192.168.1.100/MadaramZahra/'
     },
     // Application Constructor
     initialize: function() {
@@ -34,7 +35,7 @@ var
     audioUrl: function(fileName){
       return !fileName?
         this.urls.www+this.urls.startAudio :
-        this.root+this.download+fileName +'.mp3';
+        this.urls.root+this.urls.external+fileName +'.mp3';
     },
     // Bind Event Listeners
     bindEvents: function() {
@@ -63,12 +64,12 @@ var
     },
     // pause Event Handler
     paused: function(){
-      app.audioPause();
+      //app.audioPause();
       log('Device Paused');
     },
     // resume Event Handler
     resumed: function(){
-      app.audioPlay();
+      //app.audioPlay();
       log('Device Resumed');
     },
     // menubutton Event Handler
@@ -106,7 +107,25 @@ var
     },
     // Audio Panel Events for download and play audios
     audioPanel: function () {
-      alert(extDirEntry.fullPath);
+      // Fix icons
+      var
+        $audioLinks = $('a[data-audio]');
+      $audioLinks.each(function(){
+        var
+          $that = $(this),
+          audioName = $that.data('audio').toLowerCase();
+
+        app.fileExist(app.audioUrl(audioName),true,function(){
+          log('Audio finded: '+audioName);
+          $that.addClass('downloaded');
+        },function(){
+          log(audioName+' not found');
+        });
+
+        $that.tap(function(){
+          alert(audioName);
+        });
+      });
     },
     // Device file system
     fileSystem: null,
@@ -139,7 +158,7 @@ var
     },
     // check file exist with ajax
     fileExist: function(url,useAjax,success,error){
-      log('Check file exist : ' + url + ' with '+ useAjax?'ajax':'cordova' );
+      log('Check file exist : ' +url +' with ' +(useAjax?'ajax':'cordova'));
       return useAjax ?//if
         $.ajax({
           type: 'HEAD',
