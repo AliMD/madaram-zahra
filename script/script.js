@@ -17,8 +17,10 @@ var
   var app = {
     // Application Resources Url
     urls: {
-      base: 'file:///android_asset/www/',
-      audio: 'audio/'
+      www: 'file:///android_asset/www/',
+      startAudio: 'audio/startup.mp3',
+      root: '',
+      download: 'MadaramZahra_Audios/' 
     },
     // Application Constructor
     initialize: function() {
@@ -30,7 +32,9 @@ var
     },
     // Convert audio file name to absolute audio url
     audioUrl: function(fileName){
-      return this.urls.base+this.urls.audio+fileName+'.mp3';
+      return !fileName?
+        this.urls.www+this.urls.startAudio :
+        this.root+this.download+fileName +'.mp3';
     },
     // Bind Event Listeners
     bindEvents: function() {
@@ -46,7 +50,7 @@ var
     onDeviceReady: function() {
       log('Device Ready');
 
-      app.playAudio('startup');
+      app.playAudio();
       app.audioPanel();
     },
     // online Event Handler
@@ -88,15 +92,16 @@ var
     },
     // Audio Panel Events for download and play audios
     audioPanel: function () {
-      
+      this.reqFileSystem(function(){});
     },
     // Device file system
     fileSystem: null,
     // Request the persistent file system
     reqFileSystem: function (continueFn) {
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
-        app.fileSystem = fileSystem;
-        log('fileSystem Ready, rootPath: '+app.fileSystem.root.fullPath);
+        app.fileSystem= fileSystem;
+        app.urls.root= app.fileSystem.root.fullPath
+        log('fileSystem Ready, rootPath: '+app.urls.root);
         continueFn();
       },
       function(evt){
