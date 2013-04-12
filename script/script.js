@@ -34,15 +34,20 @@ var
     },
     // Bind Event Listeners
     bindEvents: function() {
+      document.addEventListener('deviceready', this.onDeviceReady, false);
       document.addEventListener('online', this.online, false);
       document.addEventListener('offline', this.offLine, false);
-      document.addEventListener('deviceready', this.onDeviceReady, false);
+      document.addEventListener('pause', this.paused, false);
+      document.addEventListener('resume', this.resumed, false);
+      document.addEventListener('menubutton', this.menuButton, false);
+      document.addEventListener('searchbutton', this.searchButton, false);
     },
     // deviceready Event Handler
     onDeviceReady: function() {
       log('Device Ready');
 
       app.playAudio('startup');
+      app.audioPanel();
     },
     // online Event Handler
     onLine: function(){
@@ -51,6 +56,22 @@ var
     // offline Event Handler
     offLine: function(){
       log('Device OffLine');
+    },
+    // pause Event Handler
+    paused: function(){
+      log('Device Paused');
+    },
+    // resume Event Handler
+    resumed: function(){
+      log('Device Resumed');
+    },
+    // menubutton Event Handler
+    menuButton: function(){
+      log('Menu Button Pressed');
+    },
+    // searchbutton Event Handler
+    searchButton: function(){
+      log('Search Button Pressed');
     },
     // Media Player Obj
     mediaPlayer: null,
@@ -64,6 +85,10 @@ var
       this.mediaPlayer = new Media(fileName);
       this.mediaPlayer.play();
       log('Play Audio '+fileName);
+    },
+    // Audio Panel Events for download and play audios
+    audioPanel: function () {
+      
     },
     // Device file system
     fileSystem: null,
