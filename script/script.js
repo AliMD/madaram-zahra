@@ -6,7 +6,7 @@
 
 var
   // Easy log
-  log: function(x){
+  log= function(x){
     console.log(x);
   };
 
@@ -24,25 +24,24 @@ var
     initialize: function() {
       this.bindEvents();
     },
-    ,
     // Log errors 
     error: function(msg) { // log errors
       log('Err : '+(msg['code']?msg.code:msg));
     },
     // Convert audio file name to absolute audio url
     audioUrl: function(fileName){
-      return urls.base+urls.audio+fileName+'.mp3';
+      return this.urls.base+this.urls.audio+fileName+'.mp3';
     },
     // Bind Event Listeners
     bindEvents: function() {
-      document.addEventListener('deviceready', this.onDeviceReady, false);
       document.addEventListener('online', this.online, false);
       document.addEventListener('offline', this.offLine, false);
+      document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
     onDeviceReady: function() {
       log('Device Ready');
-      this.playAudio('startup');
+      app.playAudio('startup');
     },
     // online Event Handler
     onLine: function(){
@@ -56,11 +55,11 @@ var
     mediaPlayer: null,
     // Play Background Audio
     playAudio: function(fileName){
-      if(mediaPlayer){
-        mediaPlayer.stop();
-        mediaPlayer.release();
+      if(this.mediaPlayer){
+        this.mediaPlayer.stop();
+        this.mediaPlayer.release();
       }
-      fileName = audioUrl(fileName);
+      fileName = this.audioUrl(fileName);
       log('Play Audio '+fileName);
       this.mediaPlayer = new Media(fileName);
     },
