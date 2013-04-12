@@ -41,6 +41,7 @@ var
     // deviceready Event Handler
     onDeviceReady: function() {
       log('Device Ready');
+
       app.playAudio('startup');
     },
     // online Event Handler
@@ -60,8 +61,9 @@ var
         this.mediaPlayer.release();
       }
       fileName = this.audioUrl(fileName);
-      log('Play Audio '+fileName);
       this.mediaPlayer = new Media(fileName);
+      this.mediaPlayer.play();
+      log('Play Audio '+fileName);
     },
     // Device file system
     fileSystem: null,
