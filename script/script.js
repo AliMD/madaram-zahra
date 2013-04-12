@@ -20,7 +20,7 @@ var
       www: 'file:///android_asset/www/',
       startAudio: 'audio/startup.mp3',
       root: '',
-      download: 'MadaramZahra_Audios/' 
+      download: 'MadaramZahra_Audios/'
     },
     // Application Constructor
     initialize: function() {
@@ -63,10 +63,12 @@ var
     },
     // pause Event Handler
     paused: function(){
+      app.audioStop();
       log('Device Paused');
     },
     // resume Event Handler
     resumed: function(){
+      app.audioStart();
       log('Device Resumed');
     },
     // menubutton Event Handler
@@ -79,6 +81,8 @@ var
     },
     // Media Player Obj
     mediaPlayer: null,
+    // Media Player status
+    playing: false,
     // Play Background Audio
     playAudio: function(fileName){
       if(this.mediaPlayer){
@@ -90,6 +94,14 @@ var
       this.mediaPlayer.play();
       log('Play Audio '+fileName);
     },
+    // Media Player Stop
+    audioStop: function () {
+      this.playing && this.mediaPlayer && this.mediaPlayer.stop();
+    },
+    // Media Player Stop
+    audioStart: function () {
+      this.playing || this.mediaPlayer && this.mediaPlayer.start();
+    },
     // Audio Panel Events for download and play audios
     audioPanel: function () {
       this.reqFileSystem(function(){});
@@ -100,7 +112,7 @@ var
     reqFileSystem: function (continueFn) {
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
         app.fileSystem= fileSystem;
-        app.urls.root= app.fileSystem.root.fullPath
+        app.urls.root= app.fileSystem.root.fullPath+'/';
         log('fileSystem Ready, rootPath: '+app.urls.root);
         continueFn();
       },
