@@ -35,7 +35,7 @@ var
     audioUrl: function(fileName){
       return !fileName?
         this.urls.www+this.urls.startAudio :
-        this.urls.root+this.urls.external+fileName +'.mp3';
+        this.urls.external+fileName +'.mp3';
     },
     // Bind Event Listeners
     bindEvents: function() {
@@ -115,11 +115,9 @@ var
           $that = $(this),
           audioName = $that.data('audio').toLowerCase();
 
-        app.fileExist(app.audioUrl(audioName),true,function(){
+        app.fileExist(app.audioUrl(audioName),false,function(){
           log('Audio finded: '+audioName);
           $that.addClass('downloaded');
-        },function(){
-          log(audioName+' not found');
         });
 
         $that.tap(function(){
