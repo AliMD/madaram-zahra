@@ -21,7 +21,7 @@ var
       startAudio: 'audio/startup.mp3',
       root: '',
       external: 'Madaram_Zahra/',
-      server: 'http://192.168.1.100/MadaramZahra/'
+      server: encodeURI('http://192.168.1.100/MadaramZahra/')
     },
     // Application Constructor
     initialize: function() {
@@ -32,10 +32,10 @@ var
       log('Err : '+(msg['code']?msg.code:msg));
     },
     // Convert audio file name to absolute audio url
-    audioUrl: function(fileName){
+    audioUrl: function(fileName,relative){
       return !fileName?
         this.urls.www+this.urls.startAudio :
-        this.urls.external+fileName +'.mp3';
+        (relative?'':this.urls.root)+this.urls.external+fileName +'.mp3';
     },
     // Bind Event Listeners
     bindEvents: function() {
@@ -89,6 +89,7 @@ var
       if(this.mediaPlayer){
         this.mediaPlayer.stop();
         this.mediaPlayer.release();
+        this.playing=false;
       }
       fileName = this.audioUrl(fileName);
       this.mediaPlayer = new Media(fileName);
@@ -107,21 +108,23 @@ var
     },
     // Audio Panel Events for download and play audios
     audioPanel: function () {
+      alert(app.urls.server);
       // Fix icons
       var
-        $audioLinks = $('a[data-audio]');
+        $audioLinks = $('a[data-audio]'),
+        downClass = 'downloaded';
       $audioLinks.each(function(){
         var
           $that = $(this),
           audioName = $that.data('audio').toLowerCase();
 
-        app.fileExist(app.audioUrl(audioName),false,function(){
+        app.fileExist(app.audioUrl(audioName,true),false,function(){
           log('Audio finded: '+audioName);
-          $that.addClass('downloaded');
+          $that.addClass(downClass);
         });
 
         $that.tap(function(){
-          alert(audioName);
+          $that.hasClass(downClass) && app.playAudio(audioName);
         });
       });
     },
