@@ -90,6 +90,11 @@ div.content p {
 	line-height: 1.5;
 }
 
+div.content span {
+	direction: ltr;
+	display: inline-block;
+}
+
 div.bg-holder {
 	background-image: url('images/handphone.png');
 	background-repeat: no-repeat;
