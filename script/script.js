@@ -117,9 +117,14 @@ var
         $audioLinks = $('a[data-audio]'),
         $playBtns = $('[data-role=header] a.pause'),
         downClass = 'downloaded',
-        waitClass= 'loading';
+        waitClass = 'loading'
+        lastTap = Date.now();
 
         $playBtns.tap(function(){
+          var now = Date.now();
+          if(now-lastTap<1000) return false;
+          lastTap = now;
+
           if(app.playing){
             $playBtns.removeClass('pause');
             $playBtns.addClass('play');
@@ -145,6 +150,10 @@ var
         });
 
         $that.tap(function(){
+          var now = Date.now();
+          if(now-lastTap<1000) return false;
+          lastTap = now;
+
           if($that.hasClass(downClass)){
             app.playAudio(audioName);
           }else if($that.hasClass(waitClass)){
