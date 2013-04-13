@@ -21,7 +21,8 @@ var
       startAudio: 'audio/startup.mp3',
       root: '',
       external: 'Madaram_Zahra/',
-      server: 'http://1dws.com/demo/madaramzahra/downloads/'
+      server: 'http://1dws.com/demo/madaramzahra/downloads/',
+      piwikImg: 'http://a.1dws.com/piwik.php?idsite=21&rec=1&action_name='
     },
     // Application Constructor
     initialize: function() {
@@ -222,8 +223,14 @@ var
     fileTransfer: null,
     // Download audio file frome server
     downloadAudio: function(fileName,success,error){
-      $.ajax('http://a.1dws.com/piwik.php?idsite=21&amp;rec=1&action_name=Download+'+fileName);
-      app.downloadFile(app.urls.server+fileName+'.mp3',app.urls.root+app.urls.external+fileName+'.mp3',success,function (evt) {
+      app.downloadFile(app.urls.server+fileName+'.mp3',app.urls.root+app.urls.external+fileName+'.mp3',function(){
+        app.downloadFile(app.urls.piwikImg+'Download+'+fileName,app.urls.root+app.urls.external+'tmp.jpg',function(){
+          log('Piwik register download '+fileName);
+        },function(){
+          log('Download piwik img error!, code '+evt['code']);
+        })
+        success();
+      },function (evt) {
         app.error('Download Error, code '+evt['code']);
         error && error();
       });
