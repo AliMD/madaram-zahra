@@ -57,7 +57,7 @@ var
       if(!app.extDirEntry) return app.makeExtDir(app.onDeviceReady);
       app.playAudio();
       app.audioPanel();
-      analytic();
+      app.analytic();
     },
     // online Event Handler
     onLine: function(){
@@ -234,29 +234,18 @@ var
       app.fileTransfer.download(encodeURI(url),dest,success,error,true);
     },
     // 1Devs PIWIK Analytic
+    piwikTracker: Piwik.getTracker(),
     analytic: function () {
-      var
-        _paq = _paq || [],
-        u = "http://a.1dws.com/",
-        d=document,
-        g=d.createElement("script"),
-        s=d.getElementsByTagName("script")[0];
-
-      _paq.push(["setCookieDomain", "*.1dws.com"]);
-      _paq.push(["setCustomVariable", 1, "Device UUID", device.uuid , "visit"]);
-      _paq.push(["setCustomVariable", 1, 'Device Model: ', device.model, "visit"]);
-      _paq.push(["setCustomVariable", 2, 'Device Version: ', device.version, "visit"]);
-      _paq.push(["setCustomVariable", 3, "Screen Size", screen.width+'x'+screen.height+'('+window.innerWidth+'x'+window.innerHeight+')' , "visit"]);
-      _paq.push(["trackPageView"]);
-      _paq.push(["enableLinkTracking"]);
-      _paq.push(["setTrackerUrl", u+"piwik.php"]);
-      _paq.push(["setSiteId", "21"]);
-
-      g.type="text/javascript";
-      g.defer=true;
-      g.async=true;
-      g.src=u+"piwik.js";
-      s.parentNode.insertBefore(g,s);
+      this.piwikTracker.setSiteId(21);
+      this.piwikTracker.setTrackerUrl("http://a.1dws.com/piwik.php");
+      this.piwikTracker.setCookieDomain('*.1dws.com');
+      //this.piwikTracker.enableLinkTracking(true);
+      this.piwikTracker.setCustomVariable(1,'Device UUID',device.uuid,'visit');
+      this.piwikTracker.setCustomVariable(2,'Device Model',device.model,'visit');
+      this.piwikTracker.setCustomVariable(3,'Device Version',device.version,'visit');
+      this.piwikTracker.setCustomVariable(4,'Screen Size',screen.width+'x'+screen.height+'('+window.innerWidth+'x'+window.innerHeight+')','visit');
+      this.piwikTracker.trackPageView('Madaram Zahra v1.0 main page');
+      log('Pwik!');
     }
 
   }; // end app obj
