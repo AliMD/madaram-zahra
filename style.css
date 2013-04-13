@@ -95,7 +95,14 @@ div.content span {
 	display: inline-block;
 	margin-left: 25px;
 }
-
+div.content p a {
+	color: #FFF;
+	text-decoration: none;
+	cursor: pointer;
+}
+div.content p a:hover {
+	text-decoration: underline;
+}
 div.bg-holder {
 	background-image: url('images/handphone.png');
 	background-repeat: no-repeat;
