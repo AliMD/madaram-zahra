@@ -98,3 +98,14 @@ div.bg-holder {
 	height: 485px;
 	position: relative;
 }
+
+div.bg-holder figure {
+	position: absolute;
+	top: 96px;
+	right: 190px;
+	width: 207px;
+	height: 312px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
