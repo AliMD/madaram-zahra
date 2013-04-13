@@ -143,6 +143,9 @@ var
                   $that.removeClass(waitClass);
                   $that.addClass(downClass);
                   app.playAudio(audioName);
+                },function () {
+                  $that.removeClass(waitClass);
+                  navigator.notification.alert('خطا در دانلود فایل !', function () {}, 'خطا', 'خب');
                 });
               };
             }, 'دانلود', 'بلی,خیر')
