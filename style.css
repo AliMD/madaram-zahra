@@ -136,6 +136,7 @@ div.download-btns div a {
 	text-shadow: 1px 1px 1px rgba(0,0,0,.4);
 	color: #FFF;
 	cursor: pointer;
+	display: block;
 }
 div.download-btns div i {
 	font-size: 30px;
