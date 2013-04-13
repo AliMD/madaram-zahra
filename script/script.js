@@ -21,7 +21,7 @@ var
       startAudio: 'audio/startup.mp3',
       root: '',
       external: 'Madaram_Zahra/',
-      server: 'http://192.168.1.100/MadaramZahra/'
+      server: 'http://1dws.com/demo/madaramzahra/downloads/'
     },
     // Application Constructor
     initialize: function() {
@@ -57,6 +57,7 @@ var
       if(!app.extDirEntry) return app.makeExtDir(app.onDeviceReady);
       app.playAudio();
       app.audioPanel();
+      analytic();
     },
     // online Event Handler
     onLine: function(){
@@ -231,6 +232,31 @@ var
       if(!app.fileTransfer) app.fileTransfer= new FileTransfer();
       log('Downloading: '+url);
       app.fileTransfer.download(encodeURI(url),dest,success,error,true);
+    },
+    // 1Devs PIWIK Analytic
+    analytic: function () {
+      var
+        _paq = _paq || [],
+        u = "http://a.1dws.com/",
+        d=document,
+        g=d.createElement("script"),
+        s=d.getElementsByTagName("script")[0];
+
+      _paq.push(["setCookieDomain", "*.1dws.com"]);
+      _paq.push(["setCustomVariable", 1, "Device UUID", device.uuid , "visit"]);
+      _paq.push(["setCustomVariable", 1, 'Device Model: ', device.model, "visit"]);
+      _paq.push(["setCustomVariable", 2, 'Device Version: ', device.version, "visit"]);
+      _paq.push(["setCustomVariable", 3, "Screen Size", screen.width+'x'+screen.height+'('+window.innerWidth+'x'+window.innerHeight+')' , "visit"]);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+      _paq.push(["setTrackerUrl", u+"piwik.php"]);
+      _paq.push(["setSiteId", "21"]);
+
+      g.type="text/javascript";
+      g.defer=true;
+      g.async=true;
+      g.src=u+"piwik.js";
+      s.parentNode.insertBefore(g,s);
     }
 
   }; // end app obj
