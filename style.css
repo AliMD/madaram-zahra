@@ -72,14 +72,10 @@
 	margin-top: 18px;
 }
 
-#header .icon-home {
-	font-size: 17px;
-}
-
 .nav-bar i {
 	display: block;
 	width: auto;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	font-size: 20px;
 }
 
@@ -133,5 +129,12 @@ a.audio-tag.loading .icon-refresh{
 	display: inline-block;
 }
 a.audio-tag.loading .icon-download-alt{
+	display: none;
+}
+
+.pause .icon-play{
+	display: none;
+}
+.play .icon-pause{
 	display: none;
 }

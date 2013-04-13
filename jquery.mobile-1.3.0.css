@@ -1121,9 +1121,9 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-header-fixed .ui-btn-right,
 .ui-header-fixed .ui-btn-left { top: 4px;}
 .ui-header .ui-btn-right,
-.ui-footer .ui-btn-right { left: 5px; }
+.ui-footer .ui-btn-right { right: 10px; }
 .ui-header .ui-btn-left,
-.ui-footer .ui-btn-left { left: 5px; }
+.ui-footer .ui-btn-left { left: 10px; }
 .ui-footer > .ui-btn-icon-notext,
 .ui-header > .ui-btn-icon-notext,
 .ui-header-fixed.ui-fixed-hidden > .ui-btn-icon-notext { top: 6px; }

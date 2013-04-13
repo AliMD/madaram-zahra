@@ -115,8 +115,22 @@ var
       // Fix icons
       var
         $audioLinks = $('a[data-audio]'),
+        $playBtns = $('[data-role=header] a.pause'),
         downClass = 'downloaded',
         waitClass= 'loading';
+
+        $playBtns.tap(function(){
+          if(app.playing){
+            $playBtns.removeClass('pause');
+            $playBtns.addClass('play');
+            app.audioPause();
+          }else{
+            $playBtns.removeClass('play');
+            $playBtns.addClass('pause');
+            app.audioPlay();
+          }
+        });
+
       $audioLinks.each(function(){
         var
           $that = $(this),
