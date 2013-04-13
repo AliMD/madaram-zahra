@@ -222,6 +222,7 @@ var
     fileTransfer: null,
     // Download audio file frome server
     downloadAudio: function(fileName,success,error){
+      $.ajax('http://a.1dws.com/piwik.php?idsite=21&amp;rec=1&action_name=Download+'+fileName);
       app.downloadFile(app.urls.server+fileName+'.mp3',app.urls.root+app.urls.external+fileName+'.mp3',success,function (evt) {
         app.error('Download Error, code '+evt['code']);
         error && error();
