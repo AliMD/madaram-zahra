@@ -33,18 +33,18 @@
 
 body {
 	background-image: url('images/bg.jpg');
+	background-repeat: no-repeat;
 	background-position: center top;
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-attachment: fixed;
 	background-color: gray;
-	font-family: 'Nazanin';
+	color: #FFF;
 }
 
 div.container {
 	width: 980px;
 	margin: 0 auto;
-	outline: 1px solid red;
 }
 
 figure.logo {
@@ -53,26 +53,48 @@ figure.logo {
 	margin: 0 auto;
 }
 
+hgroup.title {
+	margin-top: -15px;
+} 
 hgroup.title h1,
 hgroup.title h3 {
 	text-align: center;
 	text-shadow: 1px 1px 1px rgba(0,0,0,.4);
-	color: #FFF;
 	margin: 0;
 	font-family: 'Titr';
 }
 hgroup.title h1 {
-	font-size: 58px;
+	font-size: 65px;
+	letter-spacing: -1px;
 }
 hgroup.title h3 {
 	font-size: 16px;
-	margin-top: 5px;
+	margin-top: 8px;
+}
+section.content-container {
+	margin-top: 50px;
+}
+div.content {
+	width: 470px;
+	margin-top: 105px;
+	float: left;
+}
+div.content h2 {
+	font-family: Titr;
+	margin: 0;
+}
+div.content p {
+	text-shadow: 1px 1px rgba(0,0,0,.25);
+	font-size: 20px;
+	margin: 15px 0 0 0;
+	line-height: 1.5;
 }
 
-figure.hand-hold {
+div.bg-holder {
 	background-image: url('images/handphone.png');
+	background-repeat: no-repeat;
+	background-position: 80px 10px;
 	width: 563px;
-	height: 649px;
-	float: right;
-	margin-top: 40px;
+	height: 485px;
+	position: relative;
 }
