@@ -33,7 +33,7 @@ var
     },
     beep: function (t) {
       t=t>0?t:1;
-      navigator.notification.beep(2);
+      navigator.notification.beep(t);
     },
     // Convert audio file name to absolute audio url
     audioUrl: function(fileName,relative){
@@ -120,7 +120,10 @@ var
       $audioLinks.each(function(){
         var
           $that = $(this),
-          audioName = $that.data('audio').toLowerCase();
+          audioName = $that.data('audio').toLowerCase(),
+          title = $that.html();
+
+        $that.html('<i class="icon-play-circle"></i><i class="icon-download-alt"></i><i class="icon-refresh icon-spin"></i>'+title);
 
         app.fileExist(app.audioUrl(audioName,true),false,function(){
           log('Audio finded: '+audioName);
@@ -131,14 +134,13 @@ var
           if($that.hasClass(downClass)){
             app.playAudio(audioName);
           }else if($that.hasClass(waitClass)){
-            app.beep();
             navigator.notification.alert('فایل در حال دانلود است، لطفا شکیبا باشید', function () {}, 'شکیبا باشید', 'چشم');
           }else{
             navigator.notification.confirm('آیا مایل به دانلود این فایل هستید ؟', function (btn) {
               if(btn===1){
-                $that.addClass(waitClass)
+                $that.addClass(waitClass);
                 app.downloadAudio(audioName,function () {
-                  $that.removeClass(waitClass)
+                  $that.removeClass(waitClass);
                   $that.addClass(downClass);
                   app.playAudio(audioName);
                 });
