@@ -1,0 +1,78 @@
+@font-face {
+	font-family: 'Nazanin';
+	src: url('font/BNazanin.eot');
+	src: url('font/BNazanin.eot?#iefix') format('embedded-opentype'),
+		 url('font/BNazanin.woff') format('woff'),
+		 url('font/BNazanin.ttf') format('truetype');
+	font-weight	: normal;
+	font-style	: normal;
+	-webkit-font-smoothing	: antialiased;
+}
+@font-face {
+	font-family: 'Titr';
+	src: url('font/BTitrBold.eot');
+	src: url('font/BTitrBold.eot?#iefix') format('embedded-opentype'),
+		 url('font/BTitrBold.woff') format('woff'),
+		 url('font/BTitrBold.ttf') format('truetype');
+	font-weight	: normal;
+	font-style	: normal;
+	-webkit-font-smoothing	: antialiased;
+}
+
+.cover {
+	*zoom: 1;
+}
+.cover:before,
+.cover:after {
+	content: " ";
+	display: table;
+}
+.cover:after {
+	clear: both;
+}
+
+body {
+	background-image: url('images/bg.jpg');
+	background-position: center top;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-attachment: fixed;
+	background-color: gray;
+	font-family: 'Nazanin';
+}
+
+div.container {
+	width: 980px;
+	margin: 0 auto;
+	outline: 1px solid red;
+}
+
+figure.logo {
+	width: 70px;
+	height: 70px;
+	margin: 0 auto;
+}
+
+hgroup.title h1,
+hgroup.title h3 {
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+	color: #FFF;
+	margin: 0;
+	font-family: 'Titr';
+}
+hgroup.title h1 {
+	font-size: 58px;
+}
+hgroup.title h3 {
+	font-size: 16px;
+	margin-top: 5px;
+}
+
+figure.hand-hold {
+	background-image: url('images/handphone.png');
+	width: 563px;
+	height: 649px;
+	float: right;
+	margin-top: 40px;
+}
