@@ -385,6 +385,8 @@
   body:lang(ar),
   body:lang(ar-AE),
   body[lang|=ar] {
-    font-family: yekan, Verdana, Geneva, sans-serif;
+    font-family: Nazanin;
+    text-align: right;
+    direction: rtl;
   }
 }
