@@ -88,8 +88,12 @@
 	padding-bottom: 5px;
 }
 
-.list-item i {
-	padding-left: 10px;
+.list-item li a{
+	padding-right: 5px;
+}
+
+.list-item li a i {
+	padding: 0 10px;
 }
 
 div.more {
@@ -104,14 +108,29 @@ div.more {
 	display: block;
 }
 
-a.audio-tag .icon-play-circle {
+
+a.audio-tag{
+	color: hsl(0, 0%, 90%);
+}
+
+a.audio-tag .icon-play-circle,
+a.audio-tag .icon-refresh {
 	display: none;
 }
 
+a.audio-tag.downloaded{
+	color: hsl(0, 0%, 100%);
+}
 a.audio-tag.downloaded .icon-play-circle {
 	display: inline-block;
 }
-
 a.audio-tag.downloaded .icon-download-alt {
+	display: none;
+}
+
+a.audio-tag.loading .icon-refresh{
+	display: inline-block;
+}
+a.audio-tag.loading .icon-download-alt{
 	display: none;
 }

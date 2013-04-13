@@ -21,7 +21,7 @@ var
       startAudio: 'audio/startup.mp3',
       root: '',
       external: 'Madaram_Zahra/',
-      server: encodeURI('http://192.168.1.100/MadaramZahra/')
+      server: 'http://192.168.1.100/MadaramZahra/'
     },
     // Application Constructor
     initialize: function() {
@@ -30,6 +30,10 @@ var
     // Log errors 
     error: function(msg) { // log errors
       log('Err : '+(msg['code']?msg.code:msg));
+    },
+    beep: function (t) {
+      t=t>0?t:1;
+      navigator.notification.beep(2);
     },
     // Convert audio file name to absolute audio url
     audioUrl: function(fileName,relative){
@@ -108,11 +112,11 @@ var
     },
     // Audio Panel Events for download and play audios
     audioPanel: function () {
-      alert(app.urls.server);
       // Fix icons
       var
         $audioLinks = $('a[data-audio]'),
-        downClass = 'downloaded';
+        downClass = 'downloaded',
+        waitClass= 'loading';
       $audioLinks.each(function(){
         var
           $that = $(this),
@@ -124,7 +128,23 @@ var
         });
 
         $that.tap(function(){
-          $that.hasClass(downClass) && app.playAudio(audioName);
+          if($that.hasClass(downClass)){
+            app.playAudio(audioName);
+          }else if($that.hasClass(waitClass)){
+            app.beep();
+            navigator.notification.alert('فایل در حال دانلود است، لطفا شکیبا باشید', function () {}, 'شکیبا باشید', 'چشم');
+          }else{
+            navigator.notification.confirm('آیا مایل به دانلود این فایل هستید ؟', function (btn) {
+              if(btn===1){
+                $that.addClass(waitClass)
+                app.downloadAudio(audioName,function () {
+                  $that.removeClass(waitClass)
+                  $that.addClass(downClass);
+                  app.playAudio(audioName);
+                });
+              };
+            }, 'دانلود', 'بلی,خیر')
+          }
         });
       });
     },
@@ -168,6 +188,21 @@ var
           error: error
         }) :// else
         app.fileSystem.root.getFile(url, {create:false}, success, error);
+    },
+    // File Transfer Opject for downloads files
+    fileTransfer: null,
+    // Download audio file frome server
+    downloadAudio: function(fileName,success,error){
+      app.downloadFile(app.urls.server+fileName+'.mp3',app.urls.root+app.urls.external+fileName+'.mp3',success,function (evt) {
+        app.error('Download Error, code '+evt['code']);
+        error && error();
+      });
+    },
+    // Download file from server
+    downloadFile: function (url,dest,success,error) {
+      if(!app.fileTransfer) app.fileTransfer= new FileTransfer();
+      log('Downloading: '+url);
+      app.fileTransfer.download(encodeURI(url),dest,success,error,true);
     }
 
   }; // end app obj
