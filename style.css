@@ -40,6 +40,7 @@ body {
 	background-attachment: fixed;
 	background-color: gray;
 	color: #FFF;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.4);
 }
 
 div.container {
@@ -59,7 +60,6 @@ hgroup.title {
 hgroup.title h1,
 hgroup.title h3 {
 	text-align: center;
-	text-shadow: 1px 1px 1px rgba(0,0,0,.4);
 	margin: 0;
 	font-family: 'Titr';
 }
@@ -138,7 +138,6 @@ div.download-btns div {
 }
 div.download-btns div a {
 	text-decoration: none;
-	text-shadow: 1px 1px 1px rgba(0,0,0,.4);
 	color: #FFF;
 	cursor: pointer;
 	display: block;
