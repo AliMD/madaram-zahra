@@ -5,8 +5,8 @@
 		fadeLoop :function(options){
 
 			options=$.extend({
-				duration : 2500,
-				delay : 2000,
+				duration : 2000,
+				delay : 1500,
 				startIndex : -1,
 				fadeFirstImage : true
 			},options);
