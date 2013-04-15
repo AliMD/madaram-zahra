@@ -138,3 +138,28 @@ a.audio-tag.loading .icon-download-alt{
 .play .icon-pause{
 	display: none;
 }
+
+ul.gallery {
+	list-style-type: none;
+	padding: 0; 
+}
+ul.gallery:after { 
+	clear: both; 
+	content: "."; 
+	display: block; 
+	height: 0; 
+	visibility: hidden;
+}
+ul.gallery li {
+	float: left; 
+	width: 33%;
+}
+ul.gallery li a { 
+	display: block; 
+	margin: 5px; 
+	border: 1px solid #3c3c3c; 
+}
+ul.gallery li img { 
+	display: block; 
+	width: 100%; height: auto; 
+}
