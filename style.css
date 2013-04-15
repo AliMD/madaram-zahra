@@ -38,7 +38,7 @@ body {
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-attachment: fixed;
-	background-color: gray;
+	background-color: black;
 	color: #FFF;
 	text-shadow: 1px 1px 1px rgba(0,0,0,.4);
 }
@@ -55,21 +55,21 @@ figure.logo {
 }
 
 hgroup.title {
-	margin-top: -15px;
+	margin-top: 5px;
 } 
 hgroup.title h1,
 hgroup.title h3 {
 	text-align: center;
 	margin: 0;
 	font-family: 'Titr';
+	font-size: 60px;
 }
 hgroup.title h1 {
-	font-size: 65px;
-	letter-spacing: -1px;
+	letter-spacing: 1px;
 }
 hgroup.title h3 {
-	font-size: 16px;
-	margin-top: 8px;
+	font-size: 25px;
+	margin-top: 12px;
 }
 section.content-container {
 	margin-top: 50px;
@@ -123,9 +123,17 @@ div.bg-holder figure {
 	background-size: cover;
 }
 
-div.download-btns div {
+div.download-btns {
+	width: 260px;
+	margin: 10px auto 0 auto;
+}
+div.download-btns a {
 	width: 100px;
 	height: 60px;
+	cursor: pointer;
+	display: block;
+	color: #FFF;
+	text-decoration: none;
 	text-align: center;
 	line-height: 60px;
 	padding: 0 10px;
@@ -136,36 +144,29 @@ div.download-btns div {
 	-webkit-border-radius: 3px;
 	-o-border-radius: 3px;
 	-ms-border-radius: 3px;
-	margin: 20px 15px 0 0;
 	-webkit-transition: background 400ms;
 	-moz-transition: background 400ms;
 	-ms-transition: background 400ms;
 	-o-transition: background 400ms;
 	transition: background 400ms;
 }
-div.download-btns div a {
-	text-decoration: none;
-	color: #FFF;
-	cursor: pointer;
-	display: block;
+div.download-btns > a:hover {
+	background-color: rgba(0,0,0,.25) !important;
 }
-div.download-btns div i {
+div.download-btns > a:first-child {
+	margin-right: 15px;
+}
+div.download-btns a.android {
+	background-color: hsl(120, 34%, 48%);
+}
+div.download-btns a.ios {
+	background-color: hsl(23, 100%, 50%);
+}
+div.download-btns a.github {
+	background-color: #333;
+}
+div.download-btns a i {
 	font-size: 30px;
 	float: left;
 	line-height: 50px;
-}
-div.download-btns > div:hover {
-	background-color: rgba(0,0,0,.25) !important;
-}
-div.download-btns > div:first-child {
-	margin-left: 0;
-}
-div.download-btns div.android {
-	background-color: hsl(120, 34%, 48%);
-}
-div.download-btns div.ios {
-	background-color: hsl(23, 100%, 50%);
-}
-div.download-btns div.github {
-	background-color: #333;
 }
