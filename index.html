@@ -9,6 +9,7 @@
 		<title>..:: مادرم زهرا ::..</title>
 		<link rel="stylesheet" href="jquery.mobile-1.3.0.css" />
 		<link type="text/css" rel="stylesheet" href="font-awesome.min.css" />
+		<link type="text/css" rel="stylesheet" href="photoswipe.jquery-3.0.5.css" />
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
@@ -140,12 +141,12 @@
 								صوتی
 							</a>
 						</li>
-						<!-- <li>
+						<li>
 							 <a href="#gallery" class="titr" data-transition="none">
 								<i class="icon-picture"></i>
 								تصاویر
 							</a>
-						</li>-->
+						</li>
 						<li>
 							<a href="#about" class="titr" data-transition="none">
 								<i class="icon-envelope"></i>
@@ -471,7 +472,7 @@
 			</div>
 		</div>
 
-		<!-- Gallery
+		<!-- Gallery-->
 		<div data-role="page" data-theme="a" id="gallery">
 			<div data-role="header" data-theme="a" data-position="fixed">
 				<a class="ui-btn-right pause" data-role="button" href="#" ><i  class="icon-play"></i><i  class="icon-pause"></i></a>
@@ -483,8 +484,17 @@
 				</h3>
 			</div>
 			<div data-role="content" data-theme="a">
-				<div class="img-holder"></div>
-				<p class="nazanin text">در دست ساخت می باشد.</p>
+				<ul class="gallery">
+					<li><a href="images/gallery/1.jpg" rel="external"><img src="images/gallery/thumb/1.jpg" width="135" height="100" alt="Image 001" /></a></li>
+					<li><a href="images/gallery/2.jpg" rel="external"><img src="images/gallery/thumb/2.jpg" width="135" height="100" alt="Image 002" /></a></li>
+					<li><a href="images/gallery/1.jpg" rel="external"><img src="images/gallery/thumb/1.jpg" width="135" height="100" alt="Image 003" /></a></li>
+					<li><a href="images/gallery/2.jpg" rel="external"><img src="images/gallery/thumb/2.jpg" width="135" height="100" alt="Image 004" /></a></li>
+					<li><a href="images/gallery/1.jpg" rel="external"><img src="images/gallery/thumb/1.jpg" width="135" height="100" alt="Image 005" /></a></li>
+					<li><a href="images/gallery/2.jpg" rel="external"><img src="images/gallery/thumb/2.jpg" width="135" height="100" alt="Image 006" /></a></li>
+					<li><a href="images/gallery/1.jpg" rel="external"><img src="images/gallery/thumb/1.jpg" width="135" height="100" alt="Image 007" /></a></li>
+					<li><a href="images/gallery/2.jpg" rel="external"><img src="images/gallery/thumb/2.jpg" width="135" height="100" alt="Image 008" /></a></li>
+					<li><a href="images/gallery/1.jpg" rel="external"><img src="images/gallery/thumb/1.jpg" width="135" height="100" alt="Image 009" /></a></li>
+				</ul>
 			</div>
 			<div data-role="footer" data-theme="a" data-position="fixed">
 				<div class="nav-bar" data-role="navbar" data-iconpos="top">
@@ -516,11 +526,13 @@
 					</ul>
 				</div>
 			</div>
-		</div> -->
+		</div> 
 
 		<script type="text/javascript" src="script/cordova-2.6.0.js"></script>
 		<script type="text/javascript" src="script/jquery-1.7.2.min.js"></script>
 		<script type="text/javascript" src="script/jquery.mobile-1.3.0.js"></script>
+		<script type="text/javascript" src="script/klass.min.js"></script>
+		<script type="text/javascript" src="script/code.photoswipe.jquery-3.0.5.js"></script>
 		<script type="text/javascript" src="script/piwik.js"></script>
 		<script type="text/javascript" src="script/script.js"></script>
 	</body>
