@@ -57,9 +57,9 @@ var
     onDeviceReady: function() {
       log('Device Ready');
       if(!app.extDirEntry) return app.makeExtDir(app.onDeviceReady);
-      app.playAudio();
       app.audioPanel();
       app.analytic();
+      app.playAudio();
     },
     // online Event Handler
     onLine: function(){
@@ -191,6 +191,7 @@ var
       },
       function(evt){
         error('Can not access file system with error code '+evt.target.error.code);
+        continueFn();
       });
     },
     // urls.external DirectoryEntry
