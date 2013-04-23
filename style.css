@@ -90,7 +90,7 @@ div.content p {
 	line-height: 1.5;
 }
 
-div.content span {
+div.content span.number {
 	direction: ltr;
 	display: inline-block;
 	margin-left: 25px;
