@@ -94,11 +94,12 @@ div.content h2 {
 	letter-spacing: 2px;
 }
 
-div.content p {
+div.content .desc {
 	text-shadow: 1px 1px rgba(0,0,0,.25);
 	font-size: 20px;
 	margin: 15px 0 0 0;
 	line-height: 1.5;
+	height: 220px;
 }
 
 div.content span.number {
