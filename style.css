@@ -30,6 +30,13 @@
 .cover:after {
 	clear: both;
 }
+html,body{
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
 
 body {
 	background-image: url('images/bg.jpg');
@@ -46,6 +53,11 @@ body {
 div.container {
 	width: 980px;
 	margin: 0 auto;
+	-webkit-transition: all 200ms;
+	-moz-transition: all 200ms;
+	-ms-transition: all 200ms;
+	-o-transition: all 200ms;
+	transition: all 200ms;
 }
 
 figure.logo {
@@ -128,15 +140,11 @@ div.download-btns {
 	margin: 10px auto 0 auto;
 }
 div.download-btns a {
-	width: 100px;
-	height: 60px;
 	cursor: pointer;
 	display: block;
 	color: #FFF;
 	text-decoration: none;
-	text-align: center;
-	line-height: 60px;
-	padding: 0 10px;
+	padding: 10px;
 	font-size: 20px;
 	float: left;
 	border-radius: 3px;
@@ -157,16 +165,14 @@ div.download-btns > a:first-child {
 	margin-right: 15px;
 }
 div.download-btns a.android {
-	background-color: hsl(120, 34%, 48%);
+	background-color: hsl(23, 100%, 47%);
 }
 div.download-btns a.ios {
 	background-color: hsl(23, 100%, 50%);
 }
 div.download-btns a.github {
-	background-color: #333;
+	background-color: hsl(110, 50%, 42%);
 }
 div.download-btns a i {
 	font-size: 30px;
-	float: left;
-	line-height: 50px;
 }
