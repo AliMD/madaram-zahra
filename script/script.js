@@ -27,6 +27,7 @@ var
     // Application Constructor
     initialize: function() {
       this.bindEvents();
+      this.galleryInit();
     },
     // Log errors 
     error: function(msg) { // log errors
@@ -240,6 +241,16 @@ var
       if(!app.fileTransfer) app.fileTransfer= new FileTransfer();
       log('Downloading: '+url);
       app.fileTransfer.download(encodeURI(url),dest,success,error,true);
+    },
+    // Initial gallery photo swap
+    galleryInit: function  () {
+      var
+        $galleryLinks = $(".gallery a");
+      $galleryLinks
+        .photoSwipe({
+          enableMouseWheel: false,
+          enableKeyboard: false
+        });
     },
     // 1Devs PIWIK Analytic
     piwikTracker: Piwik.getTracker(),
