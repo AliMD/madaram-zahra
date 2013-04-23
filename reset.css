@@ -390,3 +390,25 @@
     direction: rtl;
   }
 }
+
+.cover {
+  *zoom: 1;
+}
+
+.cover:before,
+.cover:after {
+  content: " ";
+  display: table;
+}
+
+.cover:after {
+  clear: both;
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
