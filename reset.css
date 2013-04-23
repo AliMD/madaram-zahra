@@ -371,20 +371,20 @@
   textarea {
     resize: vertical;
   }
-  body:lang(en),
-  body:lang(en-US),
-  body:lang(en-GB),
-  body[lang|=en] {
+  :lang(en),
+  :lang(en-US),
+  :lang(en-GB),
+  [lang|=en] {
     direction: ltr;
     text-align: left;
     font-family: 'Helvetica Neue', 'Open-Reg', Arial, sans-serif;
   }
-  body:lang(fa),
-  body:lang(fa-IR),
-  body[lang|=fa],
-  body:lang(ar),
-  body:lang(ar-AE),
-  body[lang|=ar] {
+  :lang(fa),
+  :lang(fa-IR),
+  [lang|=fa],
+  :lang(ar),
+  :lang(ar-AE),
+  [lang|=ar] {
     font-family: Nazanin;
     text-align: right;
     direction: rtl;
