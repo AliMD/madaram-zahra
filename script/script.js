@@ -1,17 +1,19 @@
-/*jshint strict:true, es5:true, forin:true, noarg:true, noempty:true, eqeqeq:true, bitwise:true, strict:true, undef:true, unused:true, nonew:true, browser:true, devel:true, indent:2, boss:true, curly:false, immed:false, latedef:true, newcap:true, plusplus:false, trailing:true, maxparams:3, maxerr:100, debug:false, asi:false, evil:false, expr:true, eqnull:false, esnext:false, funcscope:false, globalstrict:false, loopfunc:false */
+/*jshint strict:true, es5:true, forin:true, noarg:true, noempty:true, eqeqeq:true, bitwise:true, strict:true, undef:true, unused:false, nonew:true, browser:true, devel:true, indent:2, boss:true, curly:false, immed:false, latedef:true, newcap:true, plusplus:false, trailing:true, maxparams:4, maxerr:100, debug:false, asi:false, evil:false, expr:true, eqnull:false, esnext:false, funcscope:false, globalstrict:false, loopfunc:false */
+/*global Media, FileTransfer, requestFileSystem, Piwik, device, LocalFileSystem */
 
 /*
  * Madaram Zahra Mobile App v1b
  */
 
-var
-  // Easy log
-  log= function(x){
-    console.log(x);
-  };
-
 (function($,undefined){
   "use strict";
+
+  // Global Objects
+  var
+    // Easy log
+    log = function(x){
+      console.log(x);
+    };
 
   // Application Main Object
   var app = {
@@ -119,24 +121,24 @@ var
         $audioLinks = $('a[data-audio]'),
         $playBtns = $('[data-role=header] a.pause'),
         downClass = 'downloaded',
-        waitClass = 'loading'
+        waitClass = 'loading',
         lastTap = Date.now();
 
-        $playBtns.tap(function(){
-          var now = Date.now();
-          if(now-lastTap<1000) return false;
-          lastTap = now;
+      $playBtns.tap(function(){
+        var now = Date.now();
+        if(now-lastTap<1000) return false;
+        lastTap = now;
 
-          if(app.playing){
-            $playBtns.removeClass('pause');
-            $playBtns.addClass('play');
-            app.audioPause();
-          }else{
-            $playBtns.removeClass('play');
-            $playBtns.addClass('pause');
-            app.audioPlay();
-          }
-        });
+        if(app.playing){
+          $playBtns.removeClass('pause');
+          $playBtns.addClass('play');
+          app.audioPause();
+        }else{
+          $playBtns.removeClass('play');
+          $playBtns.addClass('pause');
+          app.audioPlay();
+        }
+      });
 
       $audioLinks.each(function(){
         var
@@ -146,10 +148,12 @@ var
 
         $that.html('<i class="icon-play-circle"></i><i class="icon-download-alt"></i><i class="icon-refresh icon-spin"></i>'+title);
 
-        app.fileExist(app.audioUrl(audioName,true),false,function(){
-          log('Audio finded: '+audioName);
-          $that.addClass(downClass);
-        });
+        app.fileExist(app.audioUrl(audioName,true),false,
+          function(){
+            log('Audio finded: '+audioName);
+            $that.addClass(downClass);
+          }
+        );
 
         $that.tap(function(){
           var now = Date.now();
@@ -164,16 +168,19 @@ var
             navigator.notification.confirm('آیا مایل به دانلود این فایل هستید ؟', function (btn) {
               if(btn===1){
                 $that.addClass(waitClass);
-                app.downloadAudio(audioName,function () {
-                  $that.removeClass(waitClass);
-                  $that.addClass(downClass);
-                  app.playAudio(audioName);
-                },function () {
-                  $that.removeClass(waitClass);
-                  navigator.notification.alert('خطا در دانلود فایل !', function () {}, 'خطا', 'خب');
-                });
-              };
-            }, 'دانلود', 'بلی,خیر')
+                app.downloadAudio(audioName,
+                  function () {
+                    $that.removeClass(waitClass);
+                    $that.addClass(downClass);
+                    app.playAudio(audioName);
+                  },
+                  function () {
+                    $that.removeClass(waitClass);
+                    navigator.notification.alert('خطا در دانلود فایل !', function () {}, 'خطا', 'خب');
+                  }
+                );
+              }
+            }, 'دانلود', 'بلی,خیر');
           }
         });
       });
@@ -183,23 +190,25 @@ var
     // Request the persistent file system
     reqFileSystem: function (continueFn) {
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
-        app.fileSystem= fileSystem;
-        app.urls.root= app.fileSystem.root.fullPath+'/';
-        log('fileSystem Ready, rootPath: '+app.urls.root);
-        continueFn();
-      },
-      function(evt){
-        error('Can not access file system with error code '+evt.target.error.code);
-      });
+          app.fileSystem= fileSystem;
+          app.urls.root= app.fileSystem.root.fullPath+'/';
+          log('fileSystem Ready, rootPath: '+app.urls.root);
+          continueFn();
+        },
+        function(evt){
+          app.error('Can not access file system with error code '+evt.target.error.code);
+        }
+      );
     },
     // urls.external DirectoryEntry
     extDirEntry: null,
     // Make external directory and assign extDirEntry
     makeExtDir: function (continueFn) {
       if(app.extDirEntry) return false;
-      if (!app.fileSystem) return app.reqFileSystem(function(){
-        app.makeExtDir(continueFn);
-      });
+      if (!app.fileSystem)
+        return app.reqFileSystem(function(){
+          app.makeExtDir(continueFn);
+        });
       log('Making "'+app.urls.external+'" directory');
       app.fileSystem.root.getDirectory(app.urls.external, {create: true, exclusive: false}, function(entry){
         app.extDirEntry=entry;
@@ -223,17 +232,23 @@ var
     fileTransfer: null,
     // Download audio file frome server
     downloadAudio: function(fileName,success,error){
-      app.downloadFile(app.urls.server+fileName+'.mp3',app.urls.root+app.urls.external+fileName+'.mp3',function(){
-        app.downloadFile(app.urls.piwikImg+'Download+'+fileName,app.urls.root+app.urls.external+'tmp.jpg',function(){
-          log('Piwik register download '+fileName);
-        },function(){
-          log('Download piwik img error!, code '+evt['code']);
-        })
-        success();
-      },function (evt) {
-        app.error('Download Error, code '+evt['code']);
-        error && error();
-      });
+      app.downloadFile(app.urls.server+fileName+'.mp3',app.urls.root+app.urls.external+fileName+'.mp3',
+        function(){
+          app.downloadFile(app.urls.piwikImg+'Download+'+fileName,app.urls.root+app.urls.external+'tmp.jpg',
+            function(){
+              log('Piwik register download '+fileName);
+            },
+            function(evt){
+              log('Download piwik img error!, code '+evt['code']);
+            }
+          );
+          success();
+        },
+        function (evt) {
+          app.error('Download Error, code '+evt['code']);
+          error && error();
+        }
+      );
     },
     // Download file from server
     downloadFile: function (url,dest,success,error) {
