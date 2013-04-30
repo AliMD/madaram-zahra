@@ -13,6 +13,9 @@
 	<![endif]-->
 	<link type="text/css" rel="stylesheet" href="style.css" />
 	<!--  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>-->
+	<script type="text/javascript">
+		location.pathname.substr(-1)==='/' || location.href=location.pathname+'/'; // fix github.io bug
+	</script>
 </head>
 <body>
 	<div class="overlay"></div>
@@ -29,13 +32,18 @@
 			<div class="content">
 				<h2>نرم افزار موبایل مادرم زهرا</h2>
 				<div class="desc">
-					در دست ساخت ...
+					شامل مقاله، سرود و سخنرانی هایی پیرامون <br/>
+					<b>حضرت زهرا</b> (سلام الله علیها). <br/>
+					قابل اجرا بر روی تمامی گوشی ها و تبلت های اندرویدی. <br/>
+					در حال توسعه بر روی پلتفرم های دیگر نظیر iOS<br/>
+					این برنامه به طور کاملا متن باز و قابل توسعه به صورت<br/>
+					<b>غیر تجاری</b> میباشد.
 				</div>
 				<div class="download-btns cover" lang="en">
-					<a class="btn android" href="#">
+					<a class="btn android" href="download/madaram-zahra.apk">
 						<i class="icon-mobile-phone"></i>&nbsp; Android
 					</a>
-					<a class="btn ios" href="#">
+					<a class="btn ios" href="javascript:alert('در حال ساخت.'); return false;">
 						<i class="icon-mobile-phone"></i>&nbsp; IOS
 					</a>
 				</div>
