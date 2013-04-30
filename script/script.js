@@ -1,7 +1,7 @@
 /*jshint strict:true, es5:true, forin:true, noarg:true, noempty:true, eqeqeq:true, bitwise:true, strict:true, undef:true, unused:true, nonew:true, browser:true, devel:true, indent:2, boss:true, curly:false, immed:false, latedef:true, newcap:true, plusplus:false, trailing:true, maxparams:3, maxerr:100, debug:false, asi:false, evil:false, expr:true, eqnull:false, esnext:false, funcscope:false, globalstrict:false, loopfunc:false */
 
 /*
- * Madaram Zahra Mobile App v1b
+ * Madaram Zahra Mobile App v1rc1
  */
 
 var
@@ -119,7 +119,7 @@ var
         $audioLinks = $('a[data-audio]'),
         $playBtns = $('[data-role=header] a.pause'),
         downClass = 'downloaded',
-        waitClass = 'loading'
+        waitClass = 'loading',
         lastTap = Date.now();
 
         $playBtns.tap(function(){
