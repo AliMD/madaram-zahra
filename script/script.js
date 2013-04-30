@@ -23,7 +23,7 @@
       startAudio: 'audio/startup.mp3',
       root: '',
       external: 'Madaram_Zahra/',
-      server: 'http://1dws.com/demo/madaramzahra/downloads/',
+      server: 'http://alimd.github.io/madaram-zahra/audios/',
       piwikImg: 'http://a.1dws.com/piwik.php?idsite=21&rec=1&action_name='
     },
     // Application Constructor
