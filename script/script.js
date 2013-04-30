@@ -29,6 +29,7 @@
     // Application Constructor
     initialize: function() {
       this.bindEvents();
+      this.galleryInit();
     },
     // Log errors 
     error: function(msg) { // log errors
@@ -58,9 +59,9 @@
     onDeviceReady: function() {
       log('Device Ready');
       if(!app.extDirEntry) return app.makeExtDir(app.onDeviceReady);
-      app.playAudio();
       app.audioPanel();
       app.analytic();
+      app.playAudio();
     },
     // online Event Handler
     onLine: function(){
@@ -190,15 +191,15 @@
     // Request the persistent file system
     reqFileSystem: function (continueFn) {
       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
-          app.fileSystem= fileSystem;
-          app.urls.root= app.fileSystem.root.fullPath+'/';
-          log('fileSystem Ready, rootPath: '+app.urls.root);
-          continueFn();
-        },
-        function(evt){
-          app.error('Can not access file system with error code '+evt.target.error.code);
-        }
-      );
+        app.fileSystem= fileSystem;
+        app.urls.root= app.fileSystem.root.fullPath+'/';
+        log('fileSystem Ready, rootPath: '+app.urls.root);
+        continueFn();
+      },
+      function(evt){
+        error('Can not access file system with error code '+evt.target.error.code);
+        continueFn();
+      });
     },
     // urls.external DirectoryEntry
     extDirEntry: null,
@@ -255,6 +256,16 @@
       if(!app.fileTransfer) app.fileTransfer= new FileTransfer();
       log('Downloading: '+url);
       app.fileTransfer.download(encodeURI(url),dest,success,error,true);
+    },
+    // Initial gallery photo swap
+    galleryInit: function  () {
+      var
+        $galleryLinks = $(".gallery a");
+      $galleryLinks
+        .photoSwipe({
+          enableMouseWheel: false,
+          enableKeyboard: false
+        });
     },
     // 1Devs PIWIK Analytic
     piwikTracker: Piwik.getTracker(),
