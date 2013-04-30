@@ -197,7 +197,7 @@
         continueFn();
       },
       function(evt){
-        error('Can not access file system with error code '+evt.target.error.code);
+        app.error('Can not access file system with error code '+evt.target.error.code);
         continueFn();
       });
     },
