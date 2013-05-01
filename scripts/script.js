@@ -51,6 +51,8 @@
   piwikTracker.setCookieDomain('*.github.com');
   piwikTracker.enableLinkTracking(true);
   piwikTracker.setCustomVariable(1,'Screen Size',screen.width+'x'+screen.height+'('+window.innerWidth+'x'+window.innerHeight+')','visit');
+  piwikTracker.setDownloadExtensions('apk');
+  piwikTracker.setDownloadClasses('android');
   piwikTracker.trackPageView('Home page on github');
 
 })(window.Zepto || window.jQuery);
